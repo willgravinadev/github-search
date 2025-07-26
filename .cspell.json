@@ -21,14 +21,7 @@
   ],
   "language": "en",
   "files": ["**", ".vscode/**", ".github/**"],
-  "ignorePaths": [
-    "pnpm-lock.yaml",
-    ".pnpm-store/",
-    "*.sql",
-    ".vscode/**",
-    ".coderabbit.yaml",
-    ".cursor/**"
-  ],
+  "ignorePaths": ["pnpm-lock.yaml", ".pnpm-store/", "*.sql", ".vscode/**", ".coderabbit.yaml", ".cursor/**"],
   "allowCompoundWords": true,
   "import": [
     "@cspell/dict-redis/cspell-ext.json",
@@ -47,5 +40,5 @@
   ],
   "useGitignore": true,
   "version": "0.2",
-  "words": []
+  "words": ["rslib", "sonarjs", "willgravinadev"]
 }
