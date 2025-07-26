@@ -1,5 +1,37 @@
 {
+  "name": "github-search",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "turbo run build",
+    "build:apps": "turbo build --filter=./apps/*",
+    "build:configs": "turbo build --filter=./configs/*",
+    "build:packages": "turbo build --filter=./packages/*",
+    "check": "pnpm check:spelling && pnpm check:format && pnpm check:lint && pnpm check:types",
+    "check:format": "prettier --cache --check --ignore-path .gitignore --ignore-path .prettierignore .",
+    "check:lint": "turbo run check:lint",
+    "check:spelling": "cspell .",
+    "check:types": "turbo run check:types",
+    "clean": "turbo clean && rm -rf .turbo coverage",
+    "cm": "cross-env NODE_OPTIONS='--experimental-transform-types --disable-warning ExperimentalWarning' czg",
+    "dev": "turbo run dev",
+    "dev:apps": "turbo run dev --filter=./apps/*",
+    "dev:packages": "turbo run dev --filter=./packages/*",
+    "fix:format": "prettier --cache --write --list-different --ignore-path .gitignore --ignore-path .prettierignore .",
+    "fix:lint": "turbo run fix:lint",
+    "preinstall": "npx --yes only-allow pnpm",
+    "prepare": "husky && pnpm build:configs && pnpm build:packages"
+  },
+  "lint-staged": {
+    "**/*": [
+      "pnpm check:spelling",
+      "pnpm check:format"
+    ],
+    "*.{cjs,mjs,js,jsx,cts,mts,ts,tsx,json}": "eslint --fix"
+  },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@cspell/dict-bash": "^4.2.1",
     "@cspell/dict-companies": "^3.2.2",
     "@cspell/dict-en-gb": "5.0.11",
@@ -12,22 +44,25 @@
     "@cspell/dict-redis": "^1.0.7",
     "@cspell/dict-software-terms": "^5.1.5",
     "@cspell/dict-typescript": "^3.2.3",
+    "@github-search/eslint-config": "workspace:*",
+    "@github-search/prettier-config": "workspace:*",
+    "@github-search/typescript-config": "workspace:*",
+    "@rslib/core": "^0.11.0",
+    "@types/node": "^24.1.0",
+    "cross-env": "^7.0.3",
     "cspell": "^9.2.0",
+    "czg": "^1.12.0",
+    "dotenv-cli": "^9.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
     "prettier": "^3.6.2",
+    "prettier-plugin-packagejson": "2.5.19",
+    "prettier-plugin-tailwindcss": "^0.6.14",
     "turbo": "^2.5.5",
     "typescript": "5.8.3"
   },
+  "packageManager": "pnpm@10.13.1",
   "engines": {
     "node": "22.17.1"
-  },
-  "name": "github-search",
-  "packageManager": "pnpm@10.13.1",
-  "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "check:lint": "turbo run lint",
-    "check:spelling": "cspell .",
-    "check:types": "turbo run check:types",
-    "dev": "turbo run dev"
   }
 }
