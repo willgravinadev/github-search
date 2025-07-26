@@ -1,5 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- missing types
 // @ts-nocheck
+export { default as angularEslintPlugin } from '@angular-eslint/eslint-plugin'
+export { default as angularTemplatePlugin } from '@angular-eslint/eslint-plugin-template'
 export { default as eslintPlugin } from '@eslint/js'
 export { default as reactPlugin } from '@eslint-react/eslint-plugin'
 export { default as nextPlugin } from '@next/eslint-plugin-next'
@@ -10,6 +12,7 @@ export { default as prettierConfig } from 'eslint-config-prettier'
 export { default as eslintCommentsPlugin } from 'eslint-plugin-eslint-comments'
 export * as importPlugin from 'eslint-plugin-import'
 export { default as jsxA11yPlugin } from 'eslint-plugin-jsx-a11y'
+export { default as nodePlugin } from 'eslint-plugin-node'
 export { default as playwrightPlugin } from 'eslint-plugin-playwright'
 export { default as prettierPlugin } from 'eslint-plugin-prettier'
 export { default as reactHooksPlugin } from 'eslint-plugin-react-hooks'

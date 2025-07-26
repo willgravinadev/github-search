@@ -1,6 +1,7 @@
 import { type Linter } from 'eslint'
 import { isPackageExists } from 'local-pkg'
 
+import { angular } from './configs/angular'
 import { comments } from './configs/comments'
 import { ignores } from './configs/ignores'
 import { importSort } from './configs/import-sort'
@@ -22,6 +23,7 @@ export type Options = {
   typescript?: boolean
   react?: boolean
   turbo?: boolean
+  angular?: boolean
   next?: boolean
   query?: boolean
   playwright?: boolean
@@ -50,6 +52,7 @@ const willgravinadev = async (options: Options = {}, ...userConfigs: Configs): P
     typescript: enableTypeScript = hasTypeScript,
     react: enableReact = false,
     turbo: enableTurbo = false,
+    angular: enableAngular = false,
     next: enableNext = false,
     query: enableQuery = false,
     playwright: enablePlaywright = false,
@@ -88,6 +91,10 @@ const willgravinadev = async (options: Options = {}, ...userConfigs: Configs): P
 
   if (enablePlaywright) {
     configs.push(...playwright)
+  }
+
+  if (enableAngular) {
+    configs.push(...angular)
   }
 
   if (enableTestingLibrary) {
